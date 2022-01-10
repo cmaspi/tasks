@@ -1,1 +1,0 @@
-img = open("/home/cmaspi/Pictures/Wallpapers/wallpaper (copy).jpg")
