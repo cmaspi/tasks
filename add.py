@@ -1,5 +1,6 @@
 import sys
-f = open("Tdo.csv",'r+')
+import os
+f = open(os.path.join(sys.path[0], "Tdo.csv"),'r+')
 lines = [list(line.rstrip().split(',')) for line in f]
 count = len(lines)
 
