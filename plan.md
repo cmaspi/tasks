@@ -14,9 +14,11 @@
     > $ tasks done 1
 4. deleteAll: clears all the tasks, done or not
     > tasks deleteAll
+5. display: shows all the remaining tasks in shell
+    > tasks display
 
 ## Plan of action
-1. start by accepting inputs correctly
-2. error handling
+1. ~~start by accepting inputs correctly~~
+2. ~~error handling~~
 3. where to place the text
 4. colour schemes for text
