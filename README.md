@@ -1,3 +1,5 @@
+! currently doesn't support wallpaper
+
 # TasksOnWallpaper
 Pre-release   
 TasksOnWallpaper is command line utility which adds you tasks list to you current wallpaper, it does support just command line interaction as well.
