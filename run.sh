@@ -11,7 +11,11 @@ set -x lines (echo -n $argv[2..-1]| md5sum | cut -d " " -f 1| cut -b -7)
 echo $lines $argv[2..-1] >> ~/.tasks/data/Tdo.csv
 
 else if [ $cmd = 'delete' ]
-argparse 'n/index'= -- $argv
+argparse 'n/index=?' -- $argv
+set -S _flag_index
+if set -q _flag_index
+echo $_flag_index
+end
 sed -i "$_flag_index d" ~/.tasks/data/Tdo.csv
 
 else if [ $cmd = 'done' ]
