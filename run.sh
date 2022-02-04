@@ -16,7 +16,7 @@ else if [ $cmd = "deleteAll" ]
 python3 /home/$user/.tasks/src/deleteAll.py
 else if [ $cmd = "display" ]
 python3 /home/$user/.tasks/src/display.py
-else if [ $cmd = "display-done" ]
+else if [ $cmd = "displayDone" ]
 python3 /home/$user/.tasks/src/display-done.py
 else
 echo "Please refer the documentation for correct usage"
