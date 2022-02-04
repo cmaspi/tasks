@@ -1,8 +1,5 @@
-! currently doesn't support wallpaper
-
-# TasksOnWallpaper
-Pre-release   
-TasksOnWallpaper is command line utility which adds you tasks list to you current wallpaper, it does support just command line interaction as well.
+# Tasks
+Tasks is command line utility to manage your tasks.
 
 ### commands
 1. add: to add new task
@@ -15,6 +12,8 @@ TasksOnWallpaper is command line utility which adds you tasks list to you curren
     > tasks deleteAll
 5. display: shows all the remaining tasks in shell
     > tasks display
+6. displayDone: shows all the tasks that have been done
+    > tasks displayDone
 
 ### Requirements
 1. gnome-desktop
