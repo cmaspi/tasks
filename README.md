@@ -8,12 +8,17 @@ Tasks is command line utility to manage your tasks.
     > $ tasks delete 0
 3. done: to move a task to 'done' section
     > $ tasks done 1
-4. deleteAll: clears all the tasks, done or not
-    > tasks deleteAll
-5. display: shows all the remaining tasks in shell
+4. clearAll: clears all the tasks, from both Done and To Do list
+    > tasks clearAll
+5. clearDo: clears all the tasks from the To Do list
+    > tasks clearAll
+6. clearDone: clears all the tasks from Done list
+    > tasks clearAll
+7. display: shows all the remaining tasks in shell
     > tasks display
-6. displayDone: shows all the tasks that have been done
+8. displayDone: shows all the tasks that have been done
     > tasks displayDone
+
 
 ### Requirements
 1. gnome-desktop
