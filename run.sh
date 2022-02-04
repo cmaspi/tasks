@@ -1,4 +1,3 @@
-set -x wallpaper (gsettings get org.gnome.desktop.background picture-uri)
 set -x dir (pwd)
 set -x user (whoami)
 
@@ -12,16 +11,23 @@ python3 /home/$user/.tasks/src/delete.py $argv[2]
 else if [ $cmd = 'done' ]
 python3 /home/$user/.tasks/src/done.py $argv[2]
 python3 /home/$user/.tasks/src/delete.py $argv[2]
-else if [ $cmd = "deleteAll" ]
-python3 /home/$user/.tasks/src/deleteAll.py
+else if [ $cmd = "clearAll" ]
+rm ~/.tasks/data/Tdo.csv
+rm ~/.tasks/data/Tdone.csv
+touch ~/.tasks/data/Tdo.csv
+touch ~/.tasks/data/Tdone.csv
+else if [ $cmd = "clearDo" ]
+rm ~/.tasks/data/Tdo.csv
+touch ~/.tasks/data/Tdo.csv
+else if [ $cmd = "clearDone" ]
+rm ~/.tasks/data/Tdone.csv
+touch ~/.tasks/data/Tdone.csv
 else if [ $cmd = "display" ]
-python3 /home/$user/.tasks/src/display.py
+cat ~/.tasks/data/Tdo.csv
 else if [ $cmd = "displayDone" ]
-python3 /home/$user/.tasks/src/display-done.py
+cat ~/.tasks/data/Tdone.csv
 else
 echo "Please refer the documentation for correct usage"
 end
   
-# python3 changePicture.py $wallpaper
 
-# gsettings set org.gnome.desktop.background picture-uri 'file:///home/cmaspi/Pictures/Wallpapers/result.jpg'
