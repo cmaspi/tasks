@@ -5,7 +5,8 @@ set -x cmd $argv[1]
 switch $cmd
     case ''
         echo "tasks ... what? Refer man page for list of valid commands"
-
+    case help
+        xdg-open ~/.tasks/README.md
     case add do
         set -e _flag_link
         argparse 'l/link=+' -- $argv   
