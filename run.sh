@@ -57,7 +57,7 @@ switch $cmd
                 echo No such hash exists
             end
         else if test -n $argv[2]
-            set -x num (grep -n $argv[2..-1] ~/.tasks/data/Tdo.csv | head -n 1 | cut -d ":" -f 1)
+            set -x num (grep -n "$argv[2..-1]" ~/.tasks/data/Tdo.csv | head -n 1 | cut -d ":" -f 1)
             if test -n "$num"
                 sed "$num !d" ~/.tasks/data/Tdo.csv
                 echo "Do you want to delete this?"
@@ -90,7 +90,7 @@ switch $cmd
                 echo "No such hash exists"
             end
         else if test -n $argv[2]
-            set -x num (grep -n $argv[2..-1] ~/.tasks/data/Tdo.csv | head -n 1 | cut -d ":" -f 1)
+            set -x num (grep -n "$argv[2..-1]" ~/.tasks/data/Tdo.csv | head -n 1 | cut -d ":" -f 1)
             if test -n "$num"
                 sed "$num !d" ~/.tasks/data/Tdo.csv
                 echo "Do you want to move this to Done list?"
