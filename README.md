@@ -1,31 +1,46 @@
 # Tasks
-Tasks is command line utility to manage your tasks.
+Tasks is command line utility to manage your tasks in terminal.
 
-### commands
-1. add: to add new task
-    > $ tasks add convex optimization tutorial
-2. delete: to delete task
+## Requirements
+[fish shell](https://fishshell.com/)
+
+## How to install
+> $ ./install.sh  <br/>
+
+You should be good to go. However, if you are not able to execute it, use       
+
+> $ chmod 700 install.sh  <br/>
+ 
+This would give read, write, execute permission to current user.
+
+## *Commands*
+### **add: to add new task**
+**Example**     
+```fish
+$ tasks add tutorial for convex optimization
+```
+**Flags**       
+    1. -l or --link : To add some hyperlink for resources.          
+**Example**         
+ ```fish
+ $ tasks add tutorial for convex optimization -l "https://google.com"
+ ```      
+    
+### delete: to delete task
     > $ tasks delete 0
-3. done: to move a task to 'done' section
+### done: to move a task to 'done' section
     > $ tasks done 1
-4. clearAll: clears all the tasks, from both Done and To Do list
+### clearAll: clears all the tasks, from both Done and To Do list
     > tasks clearAll
-5. clearDo: clears all the tasks from the To Do list
+### clearDo: clears all the tasks from the To Do list
     > tasks clearAll
-6. clearDone: clears all the tasks from Done list
+### clearDone: clears all the tasks from Done list
     > tasks clearAll
-7. display: shows all the remaining tasks in shell
+### display: shows all the remaining tasks in shell
     > tasks display
-8. displayDone: shows all the tasks that have been done
+### displayDone: shows all the tasks that have been done
     > tasks displayDone
 
-
-### Requirements
-1. gnome-desktop
-2. fish shell
-
-### How to install
-> $ ./install.sh
-You should be good to go. However, if you are not able to execute it, use
-> $ chmod 700 install.sh
-This would give read, write, execute permission to current user.
+## How to uninstall
+> $ ./uninstall.sh
+Then remove this .tasks directory.
