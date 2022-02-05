@@ -6,7 +6,7 @@ switch $cmd
     case ''
         echo "tasks ... what? Refer man page for list of valid commands"
 
-    case add
+    case add do
         set -e _flag_link
         argparse 'l/link=+' -- $argv   
         set -x lines (echo -n $argv[2..-1]| md5sum | cut -d " " -f 1| cut -b -7)
@@ -38,10 +38,14 @@ switch $cmd
         sed -i "$_flag_index i $lines $argv[2..-1] $link" ~/.tasks/data/Tdo.csv
 
 
-    case delete
+    case delete remove clear
+        if test -z $argv[2..-1]
+            echo "tasks $argv[1] .. what?"
+            exit
+        end
         set -e _flag_index _flag_hash
         set -x max (wc -l ~/.tasks/data/Tdo.csv | cut -d " " -f 1)
-        argparse "n/index=!_validate_int --min 1 --max $max" 'H/hash=?' -- $argv
+        argparse 'H/hash=?' "n/index=!_validate_int --min 1 --max $max" -- $argv
         if set -q _flag_index
             sed -i "$_flag_index d" ~/.tasks/data/Tdo.csv
         else if set -q _flag_hash
@@ -69,7 +73,7 @@ switch $cmd
         end  
 
 
-    case done
+    case done 
         set -e _flag_index _flag_hash
         set -x max (wc -l ~/.tasks/data/Tdo.csv | cut -d " " -f 1)
         argparse "n/index=!_validate_int --min 1 --max $max" 'H/hash=?' -- $argv
@@ -102,28 +106,28 @@ switch $cmd
         end 
         
 
-    case clearAll
+    case clearAll deleteAll clearl-all delete-all
         rm ~/.tasks/data/Tdo.csv
         rm ~/.tasks/data/Tdone.csv
         touch ~/.tasks/data/Tdo.csv
         touch ~/.tasks/data/Tdone.csv
 
 
-    case clearDo
+    case clearDo deleteDo clear-do delete-do
         rm ~/.tasks/data/Tdo.csv
         touch ~/.tasks/data/Tdo.csv
     
 
-    case clearDone
+    case clearDone deleteDone clear-done delete-done
         rm ~/.tasks/data/Tdone.csv
         touch ~/.tasks/data/Tdone.csv
     
 
-    case display
+    case display show
         cat -n ~/.tasks/data/Tdo.csv
 
 
-    case displayDone
+    case displayDone showDone show-done display-done
         cat -n ~/.tasks/data/Tdone.csv
 
 
