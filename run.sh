@@ -4,7 +4,7 @@ set -x cmd $argv[1]
 
 switch $cmd
     case ''
-        echo "tasks ... what? Refer man page for list of valid commands"
+        echo "tasks ... what? Refer tasks help for list of valid commands"
     case help
         xdg-open ~/.tasks/README.md
     case add do
@@ -135,6 +135,6 @@ switch $cmd
     case '*'
         echo $argv, This is not a recognized command
         echo "Please refer the documentation for correct usage"
-        echo See man page for details
+        echo "Use tasks help to see usage of commands"
 end
   
