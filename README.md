@@ -92,4 +92,4 @@ tasks displayDone
 ```fish
 $ ./uninstall.sh
 ```
-Then remove this .tasks directory.
+Then remove ~/.tasks directory.
