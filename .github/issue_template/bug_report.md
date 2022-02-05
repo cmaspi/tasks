@@ -4,7 +4,3 @@
 * What did you expect to happen?
 * What actually happened?
 
-#### To request a feature...
-
-* Clearly describe the feature.
-* Clearly state the use case.
