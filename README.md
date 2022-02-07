@@ -2,7 +2,8 @@
 Tasks is command line utility to manage your tasks in terminal.
 
 ## Requirements
-[fish shell](https://fishshell.com/)
+[fish shell](https://fishshell.com/)        
+gcc compiler version 9+
 
 ## How to install
 > $ ./install.sh  <br/>
