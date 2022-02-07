@@ -8,4 +8,4 @@ touch ~/.tasks/lists/base/Tdo.csv
 touch ~/.tasks/lists/base/Tdone.csv
 echo "set list base" > ~/.tasks/meta/env
 
-echo "alias tasks='fish ~/.tasks/run.sh'" >> ~/.config/fish/config.fish
+echo "alias tasks='~/.tasks/./run.sh'" >> ~/.config/fish/config.fish
