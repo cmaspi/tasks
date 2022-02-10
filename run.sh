@@ -19,7 +19,7 @@ switch $cmd
         ~/.tasks/src/./base
 
     # this requires improvements, it opens the readme
-    case "--help" "-h"
+    case "--help" "-h" "help"
         man tasks
     
     # return version 
