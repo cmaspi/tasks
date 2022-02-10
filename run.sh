@@ -20,7 +20,7 @@ switch $cmd
 
     # this requires improvements, it opens the readme
     case "--help" "-h"
-        xdg-open ~/.tasks/README.md
+        man tasks
     
     # return version 
     case "-v" "--version"
@@ -127,9 +127,7 @@ switch $cmd
     # unrecognized command
     case '*'
         echo $argv, This is not a recognized command
-        echo "Please refer the documentation for correct usage"
-        echo "Use tasks help to see usage of commands"
-
+        echo "Use tasks help to see usage of commands or refer the man page"
 
 end
   
