@@ -41,7 +41,7 @@ switch $cmd
     # to remove a list
     case tear
         if test -n $argv[2]
-            if [ $argv[2..-1] = "base" ]
+            if [ "$argv[2..-1]" = "base" ]
                 echo cannot tear base list
                 exit
             end
@@ -57,7 +57,7 @@ switch $cmd
     case list
         set thelists (ls ~/.tasks/lists/)
         for i in $thelists
-            if [ $list = $i ]
+            if [ "$list" = $i ]
                 echo -n "*"
             end
             echo $i
@@ -77,12 +77,12 @@ switch $cmd
 
     # to add a new task to the list
     case add "do"
-        add $argv --list=$list    
+        add $argv --list="$list"    
 
     # this is a replacement for priority
     # if a task is more important, it can be added on top
     case addAt
-        addAt $argv --list=$list
+        addAt $argv --list="$list"
 
     # to delete or remove a task
     # this command is used to discard a task
@@ -91,7 +91,7 @@ switch $cmd
             echo "tasks $argv[1] .. what?"
             exit
         end
-        delete $argv --list=$list
+        delete $argv --list="$list"
 
     # mark a task as done, it will move the task to done list
     case "done" 
@@ -99,32 +99,32 @@ switch $cmd
             echo "tasks $argv[1.. what?"
             exit
         end
-        done $argv --list=$list
+        done $argv --list="$list"
         
-    
+    # resets the to-do and done sublists
     case clear clean
-        cat /dev/null > ~/.tasks/lists/$list/Tdone.csv
-        cat /dev/null > ~/.tasks/lists/$list/Tdo.csv
+        cat /dev/null > ~/.tasks/lists/"$list"/Tdone.csv
+        cat /dev/null > ~/.tasks/lists/"$list"/Tdo.csv
 
-
+    # clears the to-do list
     case clearDo cleanDo
-        cat /dev/null > ~/.tasks/lists/$list/Tdo.csv
+        cat /dev/null > ~/.tasks/lists/"$list"/Tdo.csv
     
-
+    # clears the done list
     case clearDone cleanDone
-        cat /dev/null > ~/.tasks/lists/$list/Tdone.csv
+        cat /dev/null > ~/.tasks/lists/"$list"/Tdone.csv
     
-
+    # lists all the tasks in to-do list
     case display show
         echo "list:" $list 
-        cat -n ~/.tasks/lists/$list/Tdo.csv
+        cat -n ~/.tasks/lists/"$list"/Tdo.csv
 
-
+    # lists all the done tasks
     case displayDone showDone
         echo "list:" $list
-        cat -n ~/.tasks/lists/$list/Tdone.csv
+        cat -n ~/.tasks/lists/"$list"/Tdone.csv
 
-
+    # unrecognized command
     case '*'
         echo $argv, This is not a recognized command
         echo "Please refer the documentation for correct usage"
