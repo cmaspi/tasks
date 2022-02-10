@@ -19,8 +19,12 @@ switch $cmd
         ~/.tasks/src/./base
 
     # this requires improvements, it opens the readme
-    case help
+    case "--help" "-h"
         xdg-open ~/.tasks/README.md
+    
+    # return version 
+    case "-v" "--version"
+        echo "v2.0"
 
     # used to create a new list
     case create
@@ -82,7 +86,7 @@ switch $cmd
 
     # to delete or remove a task
     # this command is used to discard a task
-    case delete remove
+    case delete rm
         if test -z $argv[2]
             echo "tasks $argv[1] .. what?"
             exit
