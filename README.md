@@ -6,12 +6,13 @@ Tasks is command line utility to manage your tasks in terminal.
 gcc compiler version 9+
 
 ## How to install
-> $ ./install.sh  <br/>
-
+```shell
+$ ./install.sh  <br/>
+```
 You should be good to go. However, if you are not able to execute it, use       
-
-> $ chmod 700 install.sh  <br/>
- 
+```shell
+$ chmod 700 install.sh  <br/>
+``` 
 This would give read, write, execute permission to current user.
 
 ## How to uninstall
