@@ -9,11 +9,11 @@ gcc compiler version 9+
 
 ## How to install
 ```shell
-$ ./install.sh  <br/>
+$ ./install.sh  
 ```
 You should be good to go. However, if you are not able to execute it, use       
 ```shell
-$ chmod 700 install.sh  <br/>
+$ chmod 700 install.sh  
 ``` 
 This would give read, write, execute permission to current user.
 
