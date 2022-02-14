@@ -1,3 +1,5 @@
+![Couldn't load image](https://github.com/cmaspi/tasks/blob/stable/img/logo.png)
+
 # Tasks
 Tasks is command line utility to manage your tasks in terminal.
 
