@@ -1,8 +1,10 @@
 #!/usr/bin/fish
-# removing alias
-grep -v "alias tasks='fish" ~/.config/fish/config.fish > temp.txt
-mv temp.txt ~/.config/fish/config.fish 
+
 # removing tab completions for tasks
-sudo rm /usr/share/fish/vendor_completions.d/tasks.fish
+rm ~/.local/share/fish/generated_completions/tasks.fish
 # removing manual for tasks
-sudo rm ~/.local/share/man/man1/tasks.1.gz 
+rm ~/.local/share/man/man1/tasks.1.gz 
+# removing tasks executable
+rm ~/.local/bin/tasks
+# removing directory from lib
+rm -r ~/.local/lib/tasks

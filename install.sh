@@ -1,20 +1,18 @@
 #!/usr/bin/fish
 set -x dir (pwd)
-# moving directory to home/$USER/.tasks/
-mv $dir ~/.tasks/ 
-# run.sh should be executable
-chmod 700 ~/.tasks/run.sh
+set -x loc "$HOME/.local/lib/tasks"
+# moving directory to ~/.local/lib/
+mv $dir $loc
 # making lists directory, this would contain all the lists
-mkdir ~/.tasks/lists
+mkdir $loc/lists
 # base list
-mkdir ~/.tasks/lists/base
-touch ~/.tasks/lists/base/Tdo.csv
-touch ~/.tasks/lists/base/Tdone.csv
+mkdir $loc/lists/base
+touch $loc/lists/base/Tdo.csv
+touch $loc/lists/base/Tdone.csv
 # adding tab completion
-sudo mv ~/.tasks/tasks.fish /usr/share/fish/cendor_completion.d/
+cp $loc/completions/tasks.fish ~/.local/share/fish/generated_completions/
 # adding manual
-sudo cp tasks.1.gz ~/.local/share/man/man1/
+cp $loc/manual/tasks.1.gz ~/.local/share/man/man1/
 # list variable
-echo "set list base" > ~/.tasks/meta/env
-# adding alias
-echo "alias tasks='~/.tasks/./run.sh'" >> ~/.config/fish/config.fish
+echo "set list base" > $loc/meta/env
+
