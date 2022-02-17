@@ -19,9 +19,8 @@ This would give read, write, execute permission to current user.
 
 ## How to uninstall
 ```fish
-$ ./uninstall.sh
+$ $HOME/.local/lib/tasks/./uninstall.sh
 ```
-Then remove ~/.tasks directory.
 
 ## LICENSE
 Tasks is released under the MIT License. Check the [LICENSE](https://github.com/cmaspi/tasks/blob/stable/LICENSE) file for more details.
