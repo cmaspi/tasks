@@ -15,4 +15,6 @@ cp $loc/completions/tasks.fish ~/.local/share/fish/generated_completions/
 cp $loc/manual/tasks.1.gz ~/.local/share/man/man1/
 # list variable
 echo "set list base" > $loc/meta/env
+# adding executable to path
+cp $loc/tasks $HOME/.local/bin/
 
