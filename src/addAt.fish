@@ -1,6 +1,6 @@
 function addAt
     argparse 'l/link=+' 'L/list=' 'n/index=' -- $argv   
-    set -x max (wc -l ~/.tasks/lists/$_flag_list/Tdo.csv | cut -d " " -f 1)
+    set -x max (wc -l $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.csv | cut -d " " -f 1)
     if test -z "$_flag_index"
         echo "Please use --index or n followed by appropriate index"
         exit
@@ -18,5 +18,5 @@ function addAt
             set -x link $link(echo -e " \e]8;;$i\aResource\e]8;;\a")
         end
     end
-    sed -i "$_flag_index i $lines $argv[2..-1] $link" ~/.tasks/lists/$_flag_list/Tdo.csv
+    sed -i "$_flag_index i $lines $argv[2..-1] $link" $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.csv
 end

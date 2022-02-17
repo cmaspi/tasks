@@ -46,5 +46,8 @@ complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
 
 # auto-complete for tasks use
 complete -c tasks -n "__fish_seen_subcommand_from use"\
-    -a "(ls ~/.tasks/lists)"
+    -a "(ls $HOME/.local/lib/tasks/lists)"
 
+# auto-complete for tasks tear
+complete -c tasks -n "__fish_seen_subcommand_from tear"\
+    -a "(ls $HOME/.local/lib/tasks/lists)"
