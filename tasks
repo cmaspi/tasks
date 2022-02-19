@@ -93,6 +93,10 @@ switch $cmd
             echo "tasks $argv[1] .. what?"
             exit
         end
+        if [ $argv[2] == '*' ]
+            cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
+            exit
+        end
         delete $argv --list="$list"
 
     # mark a task as done, it will move the task to done list
