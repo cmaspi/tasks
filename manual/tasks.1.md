@@ -38,31 +38,28 @@ The current list refers to the list on which all the actions such as add, delete
 
 # Commands
 Please refer Details for detailed explanation of some commands.        
-**add** : adds a task to current list      
 
-**done** : marks a task done in the current list        
+**add** : This command adds a task to current list.      
 
-**rm/ delete** : removes a task from the current list       
+**addAt** : This command adds the task at given index in the list.        
 
-**show/ display** : lists out all the tasks from to-do sublist in current list      
+**cl** : cl stands for change list, it is used to switch to mentioned list for subsequent commands      
 
-**showDone/ displayDone** : lists out all the tasks that have been marked as done in the current list       
+**done** : This command marks a task done in the current list        
 
-**create** : creates another list       
+**ls** : This command shows the names of all the lists         
 
-**tear** : tears/deletes a list     
+**mklist** : This command stands for make list, it is used to create another list and also it changes list to newly created list.       
 
-**list** : shows the names of all the lists         
+**rm** : This command removes a task from the current list, it can also be used to clear entire list.       
 
-**use** : switch to mentioned list for subsequent commands      
+**rmlist** : rmlist stands for remove list, it is used to remove/delete a list.     
 
-**addAt** : adds the task at given index in the list    
+**show** : This command lists out all the tasks from to-do list along with the tasks that have been marked as done
 
-**clean/ clear** : clears both to-do and done sublists in the current list      
+**vi** : This command opens the to-do list in vi.          
 
-**cleanDo/ clearDo** : clears the to-do sublist in current list         
-
-**cleanDone/ clearDone** : clears the done sublist in the current list
+**xdg** : This command opens the to-do list in default text editor.       
 
 # Details
 ***add***       
@@ -70,45 +67,59 @@ Adds a task to the current list.
 *Usage*     
 tasks add \[task name\] \{ -l URL \}    
 
-***done***      
-marks a task as done in the current list.        
-*Usage*       
-tasks done \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
-Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.          
-
-***rm/ delete***      
-delete a task in the current list.        
-*Usage*       
-tasks rm \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
-Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.      
-**tasks rm .** : This command is a substitute for tasks clean
-
 ***addAt***     
 adds a task at a given index in the list, this is meant to serve a substitute to priority.      
 *Usage*     
 tasks addAt -n \[INDEX\] \[TASK NAME\] \{-l URL\}   
 
-***create***        
-creates a new list.     
+***cl***       
+cl stands for change list, it is used to switch to given list for subsequent commands        
 *Usage*     
-tasks create \[LIST NAME\]      
+tasks cl \[LIST NAME\]     
 
-***use***       
-switch to given list for subsequent commands        
+***done***      
+marks a task as done in the current list.        
+*Usage*       
+tasks done \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
+Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.    
+
+***ls***        
+shows the list of lists.    
 *Usage*     
-tasks use \[LIST NAME\]     
+tasks ls    
 
-***tear***      
-tears/delete a list     
+***mklist***        
+mklist stands for make list, it is used to create a new list.     
 *Usage*     
-tasks tear \[LIST NAME\]        
+tasks mklist \[LIST NAME\]      
 
+***rm***      
+deletes a task in the current list.        
+*Usage*       
+tasks rm \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
+Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.      
+**tasks rm .** : This command is used to clear the current list.
+
+***rmlist***      
+rmlist stands for remove list, it tears/delete a list     
+*Usage*     
+tasks rmlist \[LIST NAME\]     
+
+***vi***    
+opens the to-do list in vi         
+*Usage*     
+tasks vi    
+
+***xdg***   
+opens the to-do list in default text editor     
+*Usage*     
+tasks xdg   
 
 # Bugs
 The list of all the known bugs can be found at <https://github.com/cmaspi/tasks/issues>. Additionally, you can report any new bugs on the same.
 
 # See Also
-You can check out <https://taskwarrior.org/> which is a feature-rich, multi-platform CLI to-do list management utility.
+You can check out <https://taskwarrior.org/> which is a feature-rich, multi-platform CLI to-do list management utility, but if you are looking for something more simple, make sure to checkout <https://stevelosh.com/projects/t/>.
 
 # Copyright
 Copyright (c) 2022 Chirag Mehta. MIT License : <https://opensource.org/licenses/MIT>. This is free software: you are free to change and redistribute it. There is NO WARRANTY OF ANY KIND.

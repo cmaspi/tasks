@@ -1,0 +1,11 @@
+Tasks is made by people like you, who want to develop OSS that suit their needs. You are welcome to join us and contribute in this project.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Issues
+- At any time, we may have certain open issues, you are free to work on those.
+- You can report the issues on github
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Pull Requests
+- Pull requests can be made by forking the project
+- The pull request will be peer reviewed and tested before making it a part of official release

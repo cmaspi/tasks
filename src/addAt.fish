@@ -1,6 +1,6 @@
-function addAt
+function addAt_
     argparse 'l/link=+' 'L/list=' 'n/index=' -- $argv   
-    set -x max (wc -l $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.csv | cut -d " " -f 1)
+    set -x max (wc -l $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.txt | cut -d " " -f 1)
     if test -z "$_flag_index"
         echo "Please use --index or n followed by appropriate index"
         exit

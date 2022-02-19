@@ -10,16 +10,17 @@ set -x tasksDir "$HOME/.local/lib/tasks"
 # sourcing all the function from src
 source $tasksDir/src/add.fish
 source $tasksDir/src/addAt.fish
-source $tasksDir/src/delete.fish
+source $tasksDir/src/rm.fish
 source $tasksDir/src/done.fish
 source $tasksDir/meta/env
 
 # switch case to determine the command
 switch $cmd
 
-    # empty case, when the command is just $ tasks
+    # empty case, it shows the to-do list``
     case ''
-        $tasksDir/src/./base
+        echo "list:" $list 
+        cat -n $tasksDir/lists/"$list"/Tdo.txt
 
     # this requires improvements, it opens the readme
     case "--help" "-h" "help"
@@ -27,16 +28,18 @@ switch $cmd
     
     # return version 
     case "-v" "--version"
-        echo "v2.0"
+        echo "v3.0"
 
     # used to create a new list
-    case create
+    case mklist
         if test -n $argv[2]
             set dir $tasksDir/lists/"$argv[2..-1]"
             [ -d "$dir" ] && echo "list already exists" && exit
             mkdir "$dir"
-            touch "$dir"/Tdo.csv
-            touch "$dir"/Tdone.csv
+            touch "$dir"/Tdo.txt
+            touch "$dir"/Tdone.txt
+            echo set list "$argv[2..-1]" > $tasksDir/meta/env
+            echo Using "$argv[2..-1]"
         else 
             # if the command is tasks create , then it will
             # return this error message
@@ -44,7 +47,7 @@ switch $cmd
         end
 
     # to remove a list
-    case tear
+    case rmlist
         if test -n $argv[2]
             if [ "$argv[2..-1]" = "base" ]
                 echo cannot tear base list
@@ -59,7 +62,7 @@ switch $cmd
         end
 
     # this will show all the lists
-    case list
+    case ls
         set thelists (ls $tasksDir/lists/)
         for i in $thelists
             if [ "$list" = $i ]
@@ -69,7 +72,7 @@ switch $cmd
         end
 
     # to switch to a list
-    case use
+    case cl
         if test -n $argv[2]
             set dir $tasksDir/lists/"$argv[2..-1]"
             # echo $dir
@@ -81,59 +84,52 @@ switch $cmd
         end
 
     # to add a new task to the list
-    case add "do"
-        add $argv --list="$list"    
+    case add
+        add_ $argv --list="$list"    
 
     # this is a replacement for priority
     # if a task is more important, it can be added on top
     case addAt
-        addAt $argv --list="$list"
+        addAt_ $argv --list="$list"
 
     # to delete or remove a task
     # this command is used to discard a task
-    case delete rm
+    case rm
         if test -z $argv[2]
             echo "tasks $argv[1] .. what?"
             exit
         end
         if [ $argv[2] = "." ]
            # same as cleanDo
-            cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
-            cat /dev/null > $tasksDir/lists/"$list"/Tdone.csv
+            cat /dev/null > $tasksDir/lists/"$list"/Tdo.txt
+            cat /dev/null > $tasksDir/lists/"$list"/Tdone.txt
             exit
         end
-        delete $argv --list="$list"
+        rm_ $argv --list="$list"
 
     # mark a task as done, it will move the task to done list
     case "done" 
         if test -z $argv[2]
-            echo "tasks $argv[1.. what?"
+            echo "tasks done .. what?"
             exit
         end
-        done $argv --list="$list"
-        
-    # resets the to-do and done sublists
-    case clear clean
-        cat /dev/null > $tasksDir/lists/"$list"/Tdone.csv
-        cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
-
-    # clears the to-do list
-    case clearDo cleanDo
-        cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
-    
-    # clears the done list
-    case clearDone cleanDone
-        cat /dev/null > $tasksDir/lists/"$list"/Tdone.csv
-    
-    # lists all the tasks in to-do list
-    case display show
-        echo "list:" $list 
-        cat -n $tasksDir/lists/"$list"/Tdo.csv
+        done_ $argv --list="$list"
 
     # lists all the done tasks
-    case displayDone showDone
+    case show
         echo "list:" $list
-        cat -n $tasksDir/lists/"$list"/Tdone.csv
+        echo "To-do"
+        cat -n $tasksDir/lists/"$list"/Tdo.txt
+        echo "marked as done"
+        cat -n $tasksDir/lists/"$list"/Tdone.txt
+    
+    # opens the to-do list in vi
+    case vi
+        vi $tasksDir/lists/"$list"/Tdo.txt
+
+    # opens the to-do list in default text editor
+    case xdg
+        xdg-open $tasksDir/lists/"$list"/Tdo.txt
 
     # unrecognized command
     case '*'
