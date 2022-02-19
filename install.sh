@@ -1,5 +1,5 @@
 #!/usr/bin/fish
-set -x dir (pwd)
+set -x dir (cd (dirname (status --current-filename)); and pwd)
 set -x loc "$HOME/.local/lib/tasks"
 # moving directory to ~/.local/lib/
 mv $dir $loc
