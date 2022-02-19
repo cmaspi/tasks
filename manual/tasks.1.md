@@ -81,8 +81,8 @@ delete a task in the current list.
 *Usage*       
 tasks rm \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
 Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.              
-tasks rm *      
-same usage as tasks clean
+tasks rm .      
+same usage as tasks cleanDo
 
 ***addAt***     
 adds a task at a given index in the list, this is meant to serve a substitute to priority.      

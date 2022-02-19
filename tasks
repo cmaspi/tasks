@@ -93,7 +93,7 @@ switch $cmd
             echo "tasks $argv[1] .. what?"
             exit
         end
-        if [ $argv[2] == '*' ]
+        if [ $argv[2] == '.' ]
             cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
             exit
         end
