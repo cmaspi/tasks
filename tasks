@@ -96,7 +96,7 @@ switch $cmd
             echo "tasks $argv[1] .. what?"
             exit
         end
-        if [ $argv[2] == "." ]
+        if [ $argv[2] = "." ]
            # same as cleanDo
             cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
             cat /dev/null > $tasksDir/lists/"$list"/Tdone.csv
