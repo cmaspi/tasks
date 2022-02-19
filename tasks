@@ -8,10 +8,10 @@ set -x cmd $argv[1]
 set -x tasksDir "$HOME/.local/lib/tasks"
 
 # sourcing all the function from src
-source $tasksDir/src/add_.fish
-source $tasksDir/src/addAt_.fish
-source $tasksDir/src/rm_.fish
-source $tasksDir/src/done_.fish
+source $tasksDir/src/add.fish
+source $tasksDir/src/addAt.fish
+source $tasksDir/src/rm.fish
+source $tasksDir/src/done.fish
 source $tasksDir/meta/env
 
 # switch case to determine the command
@@ -126,7 +126,7 @@ switch $cmd
     # opens the to-do list in vi
     case vi
         vi $tasksDir/lists/"$list"/Tdo.txt
-        
+
     # opens the to-do list in default text editor
     case xdg
         xdg-open $tasksDir/lists/"$list"/Tdo.txt
