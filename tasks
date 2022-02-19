@@ -6,6 +6,7 @@ set -x cmd $argv[1]
 
 # tasks directory
 set -x tasksDir "$HOME/.local/lib/tasks"
+
 # sourcing all the function from src
 source $tasksDir/src/add.fish
 source $tasksDir/src/addAt.fish
@@ -37,6 +38,8 @@ switch $cmd
             touch "$dir"/Tdo.csv
             touch "$dir"/Tdone.csv
         else 
+            # if the command is tasks create , then it will
+            # return this error message
             echo "tasks create ... what?"
         end
 
@@ -91,6 +94,12 @@ switch $cmd
     case delete rm
         if test -z $argv[2]
             echo "tasks $argv[1] .. what?"
+            exit
+        end
+        if [ $argv[2] == "." ]
+           # same as cleanDo
+            cat /dev/null > $tasksDir/lists/"$list"/Tdo.csv
+            cat /dev/null > $tasksDir/lists/"$list"/Tdone.csv
             exit
         end
         delete $argv --list="$list"
