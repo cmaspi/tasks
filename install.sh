@@ -7,8 +7,8 @@ mv $dir $loc
 mkdir $loc/lists
 # base list
 mkdir $loc/lists/base
-touch $loc/lists/base/Tdo.csv
-touch $loc/lists/base/Tdone.csv
+touch $loc/lists/base/Tdo.txt
+touch $loc/lists/base/Tdone.txt
 # adding tab completion
 cp $loc/completions/tasks.fish ~/.local/share/fish/generated_completions/
 # adding manual

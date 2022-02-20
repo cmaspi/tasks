@@ -30,7 +30,6 @@ function rm_
                 case N n
                     exit
             end
-            sed "$num !d" $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.txt >> $HOME/.local/lib/tasks/lists/$_flag_list/Tdone.txt
             sed -i "$num d" $HOME/.local/lib/tasks/lists/$_flag_list/Tdo.txt
         else
             echo "Unable to find keyword"
