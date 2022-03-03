@@ -30,7 +30,12 @@ complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
     -a "xdg" -d "opens the to-do sublist in default text editor"
 
 
+
 # auto-complete for tasks use
+complete -c tasks -n "__fish_seen_subcommand_from use"\
+    -a "(ls $HOME/.local/lib/tasks/lists)"
+
+# auto-complete for tasks cl
 complete -c tasks -n "__fish_seen_subcommand_from cl"\
     -a "(ls $HOME/.local/lib/tasks/lists)"
 
