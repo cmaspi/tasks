@@ -57,6 +57,8 @@ Please refer Details for detailed explanation of some commands.
 
 **show** : This command lists out all the tasks from to-do list along with the tasks that have been marked as done
 
+**use** : This command is a substitute for cl command.
+
 **vi** : This command opens the to-do list in vi.          
 
 **xdg** : This command opens the to-do list in default text editor.       
@@ -98,12 +100,18 @@ deletes a task in the current list.
 *Usage*       
 tasks rm \{KEYWORD\}  \{-n INDEX\} \{\-\-hash=HASH\}        
 Atleast one of the parameters is important, if more than one is given, then the order of precedence is -n, \-\-hash, then KEYWORD.      
-**tasks rm .** : This command is used to clear the current list.
+**tasks rm .** : This command is used to clear the current list which includes both sublists.	
+**tasks rm ** : This command is used to clear the "done" sublist.
 
 ***rmlist***      
-rmlist stands for remove list, it tears/delete a list     
+rmlist stands for remove list, it tears/delete a list.     
 *Usage*     
 tasks rmlist \[LIST NAME\]     
+
+***use***
+use command is a substitute for the cl command.		
+*Usage*
+tasks use \[LIST NAME\]
 
 ***vi***    
 opens the to-do list in vi         

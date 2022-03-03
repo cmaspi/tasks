@@ -1,5 +1,5 @@
 # list of all available commands
-set -l commands 'help' mklist rmlist ls cl add addAt rm show vi xdg
+set -l commands 'help' mklist rmlist ls cl add addAt rm show vi xdg use
 # command doesn't require files
 complete -c tasks -f
 
@@ -21,14 +21,21 @@ complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
 complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
     -a "cl" -d "use a particular list"
 complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
+    -a "use" -d "use a particular list"
+complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
     -a "addAt" -d "adds task at given index"
 complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
-    -a "vi" -d "opens the to-do list in vi"
+    -a "vi" -d "opens the to-do sublist in vi"
 complete -c tasks -n "not __fish_seen_subcommand_from $commands" \
-    -a "xdg" -d "opens the to-do list in default text editor"
+    -a "xdg" -d "opens the to-do sublist in default text editor"
+
 
 
 # auto-complete for tasks use
+complete -c tasks -n "__fish_seen_subcommand_from use"\
+    -a "(ls $HOME/.local/lib/tasks/lists)"
+
+# auto-complete for tasks cl
 complete -c tasks -n "__fish_seen_subcommand_from cl"\
     -a "(ls $HOME/.local/lib/tasks/lists)"
 

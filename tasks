@@ -72,7 +72,7 @@ switch $cmd
         end
 
     # to switch to a list
-    case cl
+    case cl use
         if test -n $argv[2]
             set dir $tasksDir/lists/"$argv[2..-1]"
             # echo $dir
@@ -96,7 +96,13 @@ switch $cmd
     # this command is used to discard a task
     case rm
         if test -z $argv[2]
-            echo "tasks $argv[1] .. what?"
+            echo "This will clear the \"done\" sublist"
+	    read -l -P 'Confirm [y]/n: ' confirm
+            switch $confirm
+                case N n
+                    exit
+            end
+	    cat /dev/null > $tasksDir/lists/"$list"/Tdone.txt
             exit
         end
         if [ $argv[2] = "." ]
