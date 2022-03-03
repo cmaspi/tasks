@@ -106,7 +106,7 @@ switch $cmd
             exit
         end
         if [ $argv[2] = "." ]
-           # same as cleanDo
+       		# this clear both the to-do and done sublist 
             cat /dev/null > $tasksDir/lists/"$list"/Tdo.txt
             cat /dev/null > $tasksDir/lists/"$list"/Tdone.txt
             exit
