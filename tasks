@@ -28,7 +28,7 @@ switch $cmd
     
     # return version 
     case "-v" "--version"
-        echo "v3.0"
+        echo "v3.02"
 
     # used to create a new list
     case mklist
